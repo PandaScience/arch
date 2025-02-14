@@ -166,8 +166,8 @@ Workaround for running docker with `overlay2` on openZFS:
 1. Create a sparse ZFS volume and format it to ext4
 
    ```
-   zfs create -s -V 250G zroot/encr/DOCKER
-   mkfs.ext4 /dev/zvol/zroot/encr/DOCKER
+   zfs create -s -V 250G zroot/encr/nobackup/DOCKER
+   mkfs.ext4 /dev/zvol/zroot/encr/nobackup/DOCKER
    ```
 
 2. Automount it to the docker root directory
