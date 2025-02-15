@@ -43,13 +43,15 @@ zpool set bootfs="${system}"/ROOT "${pool}"
 zfs create -o mountpoint=/var/lib/flatpak "${system}"/FLATPAK
 
 # user data
-zfs create -o mountpoint=/root                     "${userdata}"/ROOTHOME
-zfs create -o mountpoint=/home                     "${userdata}"/HOME
-zfs create -o mountpoint=/home/"${user}"/Cello     "${userdata}"/CELLO
-zfs create -o mountpoint=/home/"${user}"/Documents "${userdata}"/DOCUMENTS
-zfs create -o mountpoint=/home/"${user}"/Downloads "${userdata}"/DOWNLOADS
-zfs create -o mountpoint=/home/"${user}"/Music     "${userdata}"/MUSIC
-zfs create -o mountpoint=/home/"${user}"/Pictures  "${userdata}"/PICTURES
+zfs create -o mountpoint=/root                        "${userdata}"/ROOTHOME
+zfs create -o mountpoint=/home                        "${userdata}"/HOME
+zfs create -o mountpoint=/home/"${user}"/Cello        "${userdata}"/CELLO
+zfs create -o mountpoint=/home/"${user}"/Code         "${userdata}"/CODE
+zfs create -o mountpoint=/home/"${user}"/Documents    "${userdata}"/DOCUMENTS
+zfs create -o mountpoint=/home/"${user}"/Downloads    "${userdata}"/DOWNLOADS
+zfs create -o mountpoint=/home/"${user}"/.thunderbird "${userdata}"/EMAIL
+zfs create -o mountpoint=/home/"${user}"/Music        "${userdata}"/MUSIC
+zfs create -o mountpoint=/home/"${user}"/Pictures     "${userdata}"/PICTURES
 
 # system caches and temp folders -> no need to backup those
 zfs create -o mountpoint=/var/cache "${nobackup}"/VARCACHE
