@@ -70,6 +70,9 @@ zfs create -o mountpoint=/scratch "${nobackup}"/SCRATCH
 zfs create -o mountpoint=/home/"${user}"/VirtualBox       "${nobackup}"/VIRTUALBOX
 zfs create -o mountpoint=/home/"${user}"/VirtualBox/share "${userdata}"/VBOXSHARE
 
+# ext4-formatted ZVOL to be able to utilize the overlay2 storage driver
+zfs create -s -V 250G "${nobackup}"/DOCKER
+
 # podman/OCI container data paths
 zfs create -o mountpoint=/var/lib/containers                     "${nobackup}"/OCI_ROOT
 zfs create -o mountpoint=/home/"${user}"/.local/share/containers "${nobackup}"/OCI_USER
