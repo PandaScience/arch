@@ -6,7 +6,6 @@ YELLOW=$(tput setaf 3)
 CYAN=$(tput setaf 6)
 NOCOL=$(tput sgr0)
 
-
 info() {
 	echo "${CYAN}=== ${1}${NOCOL}"
 }
@@ -24,7 +23,7 @@ if [ "$(id -u)" -eq 0 ]; then
 	exit 0
 fi
 
-until ping 8.8.8.8 -c1 > /dev/null; do
+until ping 8.8.8.8 -c1 >/dev/null; do
 	err "No internet connection. Setting up WiFi network..."
 	info "Setting up network"
 	nmcli radio wifi on
@@ -35,7 +34,7 @@ until ping 8.8.8.8 -c1 > /dev/null; do
 done
 
 info "Installing AUR helper"
-if pacman -Qi yay > /dev/null 2>&1; then
+if pacman -Qi yay >/dev/null 2>&1; then
 	note "...yay already installed, skipping..."
 else
 	sudo pacman -qS --noconfirm --needed git base-devel
@@ -58,7 +57,7 @@ fi
 
 printf "\n\n"
 info "Installing dotfiles"
-if pacman -Qi yadm > /dev/null; then
+if pacman -Qi yadm >/dev/null; then
 	note "...yadm already installed, skipping..."
 else
 	sudo pacman -qS --noconfirm yadm
@@ -77,7 +76,7 @@ fi
 
 printf "\n\n"
 note "You probably want to further configure yadm using these commands"
-cat << EOF
+cat <<EOF
     # set class
     yadm config local.class "work"
 
