@@ -21,7 +21,9 @@ booting from it. Make sure
 - Type is set to Linux -> Arch Linux (64-bit)
 - Unattended install is disabled
 - EFI is enabled
-- Hard disk is sufficiently large sized (default 8GB should be safe)
+- Hard disk is sufficiently large (default 8GB should be safe)
+- RAM is sufficiently large (default 1GB is too small, use at least 2GB or better 4GB)</br>
+  (zfs install script will increase cowspace to 50% of RAM size)
 
 **For convenience:**
 
