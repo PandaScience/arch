@@ -60,7 +60,7 @@ zfs create -o mountpoint=/var/log   "${nobackup}"/VARLOG
 
 # user caches and other frequently changing application data without backup
 zfs create -o mountpoint=/home/"${user}"/.cache             "${nobackup}"/DOTCACHE
-zfs create -o mountpoint=/home/"${user}"/.config/slack      "${nobackup}"/SLACK
+zfs create -o mountpoint=/home/"${user}"/.config/Slack      "${nobackup}"/SLACK
 zfs create -o mountpoint=/home/"${user}"/.local/share/Steam "${nobackup}"/STEAM
 zfs create -o mountpoint=/home/"${user}"/.config/chromium   "${nobackup}"/CHROMIUM
 zfs create -o mountpoint=/home/"${user}"/.mozilla           "${nobackup}"/MOZILLA
